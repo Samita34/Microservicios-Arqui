@@ -1,0 +1,39 @@
+### Obtener la lista de todos los productos
+GET http://localhost:8080/products
+Accept: application/json
+
+### Obtener detalles de un producto específico por ID
+GET http://localhost:8080/products/3
+Accept: application/json
+
+
+### Crear un nuevo producto
+POST http://localhost:8080/products
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Producto Ejemplo2",
+    "description": "Descripción del producto ejemplo",
+    "price": 19.99,
+    "stock": 100
+}
+
+
+### Actualizar un producto existente
+PUT http://localhost:8080/products/6
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Producto Actualizado",
+    "description": "Descripción actualizada del producto",
+    "price": 29.99,
+    "stock": 150
+}
+
+
+### Eliminar un producto
+DELETE http://localhost:8080/products/5
+Accept: application/json
+

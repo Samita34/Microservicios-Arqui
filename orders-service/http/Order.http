@@ -1,0 +1,45 @@
+### obtener la lista de todos los pedidos ###
+GET http://localhost:8082/orders
+Accept: application/json
+
+### obtener detalles de un pedido específico por id ###
+GET http://localhost:8082/orders/2
+Accept: application/json
+
+### crear un nuevo pedido ###
+POST http://localhost:8082/orders
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userId": 1,
+    "status": "Pending",
+    "total": 49.99,
+    "orderItems": [
+        {
+            "productId": 1,
+            "quantity": 432,
+            "price": 19.99
+        },
+        {
+            "productId": 2,
+            "quantity": 1,
+            "price": 29.99
+        }
+    ]
+}
+
+### actualizar un pedido existente ###
+PUT http://localhost:8082/orders/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userId": 1,
+    "status": "Shipped",
+    "total": 49.99
+}
+
+### cancelar un pedido ###
+DELETE http://localhost:8082/orders/14
+Accept: application/json

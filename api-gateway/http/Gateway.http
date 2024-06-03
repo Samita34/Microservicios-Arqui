@@ -1,0 +1,3 @@
+### obtener la lista de productos ###
+GET http://localhost:8090/products
+Accept: application/json

@@ -1,0 +1,37 @@
+### crear un nuevo pago ###
+POST http://localhost:8083/payments
+Content-Type: application/json
+Accept: application/json
+
+{
+    "orderId": 9,
+    "amount": 49.99,
+    "method": "Credit Card",
+    "status": "Completed",
+    "transactionId": "txn_1001"
+}
+
+### obtener todos los pagos ###
+GET http://localhost:8083/payments
+Accept: application/json
+
+### obtener el estado de un pago específico ###
+GET http://localhost:8083/payments/9
+Accept: application/json
+
+
+### actualizar el estado de un pago ###
+PUT http://localhost:8083/payments/9
+Content-Type: application/json
+Accept: application/json
+
+{
+    "amount": 49.99,
+    "method": "Credit Card",
+    "status": "False",
+    "transactionId": "txn_1001"
+}
+
+### cancelar un pago ###
+DELETE http://localhost:8083/payments/9
+Accept: application/json
