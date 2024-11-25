@@ -15,12 +15,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "username": "user4",
-    "password": "password4"
+    "username": "user3",
+    "password": "password3"
 }
 
 ### obtener información de un usuario por id ###
-GET http://localhost:8081/users/3
+GET http://localhost:8081/users/4
 Accept: application/json
 
 ### actualizar un usuario existente ###

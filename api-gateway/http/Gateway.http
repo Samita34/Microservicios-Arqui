@@ -1,3 +1,100 @@
-### obtener la lista de productos ###
+### Obtener la lista de todos los productos
 GET http://localhost:8090/products
+Accept: application/json
+
+### Obtener detalles de un producto específico por ID
+GET http://localhost:8090/products/3
+Accept: application/json
+
+
+### Crear un nuevo producto
+POST http://localhost:8090/products
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Producto Ejemplo2",
+    "description": "Descripción del producto ejemplo",
+    "price": 19.99,
+    "stock": 100
+}
+
+
+### Actualizar un producto existente
+PUT http://localhost:8090/products/6
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Producto Actualizado",
+    "description": "Descripción actualizada del producto",
+    "price": 29.99,
+    "stock": 150
+}
+
+
+### Eliminar un producto
+DELETE http://localhost:8090/products/5
+Accept: application/json
+
+
+
+### crear un nuevo pago ###
+POST http://localhost:8090/payments
+Content-Type: application/json
+Accept: application/json
+
+{
+    "orderId": 9,
+    "amount": 49.99,
+    "method": "Credit Card",
+    "status": "Completed",
+    "transactionId": "txn_1001"
+}
+
+### obtener todos los pagos ###
+GET http://localhost:8090/payments
+Accept: application/json
+
+### obtener el estado de un pago específico ###
+GET http://localhost:8090/payments/9
+Accept: application/json
+
+
+### actualizar el estado de un pago ###
+PUT http://localhost:8090/payments/9
+Content-Type: application/json
+Accept: application/json
+
+{
+    "amount": 49.99,
+    "method": "Credit Card",
+    "status": "False",
+    "transactionId": "txn_1001"
+}
+
+### cancelar un pago ###
+DELETE http://localhost:8090/payments/9
+Accept: application/json
+### obtener información de un usuario por id ###
+
+GET http://localhost:8090/users/3
+Accept: application/json
+
+### autenticar un usuario ###
+POST http://localhost:8090/users/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "user3",
+    "password": "password3"
+}
+
+### obtener la lista de todos los pedidos ###
+GET http://localhost:8090/orders
+Accept: application/json
+
+### obtener detalles de un pedido específico por id ###
+GET http://localhost:8090/orders/1
 Accept: application/json

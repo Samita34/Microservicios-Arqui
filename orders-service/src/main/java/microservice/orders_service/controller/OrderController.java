@@ -28,12 +28,18 @@ public class OrderController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<OrderResponseDto> getOrderById(@PathVariable Long id) {
-        return orderRepository.findById(id)
-                .map(order -> ResponseEntity.ok(new OrderResponseDto(order)))
-                .orElse(ResponseEntity.notFound().build());
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<OrderResponseDto>> getOrdersByUserId(@PathVariable Long userId) {
+        List<Order> orders = orderRepository.findByUserId(userId);
+        if (orders.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        List<OrderResponseDto> response = orders.stream()
+                                                .map(OrderResponseDto::new)
+                                                .collect(Collectors.toList());
+        return ResponseEntity.ok(response);
     }
+    
 
     @PostMapping
     public ResponseEntity<OrderResponseDto> createOrder(@RequestBody OrderRequestDto orderRequestDto) {
